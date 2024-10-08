@@ -1,1 +1,32 @@
-<p>create-list works!</p>
+<form [formGroup]="createItemForm" (ngSubmit)="createList()" class="form-container">
+  <div class="form-list">
+    <div class="form-field">
+      <label for="listName" class="form-label">Nome da lista</label>
+      <input type="text" class="form-input" required formControlName="listName">
+      @if(createItemForm.get('listName')?.invalid && createItemForm.get('listName')?.touched) {
+      <div class="form-error">O nome da lista é obrigatório</div>
+      }
+    </div>
+
+  </div>
+  <div class="form-item" *ngFor="let item of itemsControls; let i = index" [formGroup]="item">
+    <div class="form-field">
+      <label for="nome{{i}}" class="form-label">Nome do produto</label>
+      <input type="text" formControlName="nome" id="name{{i}}" class="form-input" formControlName="name"
+        placeholder="cimento" required>
+    </div>
+    <div class="form-field">
+      <label for="price{{i}}" class="form-label">Preço</label>
+      <input type="number" id="price{{i}}" formControlName="price" class="form-input">
+    </div>
+    <div class="form-field">
+      <label for="store{{i}}" class="form-label">Link da loja</label>
+      <input type="text" id="store{{i}}" formControlName="store" class="form-input">
+    </div>
+  </div>
+  <div class="form-btn-container">
+    <button type="button" class="form-btn" (click)="addItem()">Adicionar item</button>
+    <button class="form-btn" type="submit" [disabled]="createItemForm.invalid">Criar lista</button>
+
+  </div>
+</form>

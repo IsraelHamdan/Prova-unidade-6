@@ -1,0 +1,93 @@
+@use '../global.sass'
+
+.form-container
+  margin: auto
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-top: 1em
+  flex-direction: column
+  gap: 1em
+  background-color: global.$form-bg
+  height: 500px
+  width: 400px
+  padding: 2em
+  border-radius: 30px
+  box-shadow: 2px,2px,2px, #A594F9
+
+// .form-error
+//   display: flex
+//   font-weight: bold
+//   width: 105px
+//   height: 50px
+
+//   background-color: #F5EFFF
+//   color: #FA7070
+
+.form-list, .form-item
+  display: flex
+  flex-direction: column
+  gap: 0.3em
+
+.form-field
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 100%
+
+.form-label
+  color: global.$color-text-darkmode
+  width: 150%
+  border-radius: 30px
+  border: none
+
+.form-input
+  border: none
+  border-radius: 20px
+  background-color: global.$btn-color1
+  width: 150%
+  height: 40px
+  margin-right: 2px
+
+.form-btn-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-between
+  gap: 1em
+.form-btn
+  width: 100px
+  height: 50px
+  border: none
+  background-color: global.$btn-color1
+  border-radius: 30px
+
+@media screen and (max-width: 320px)
+  .form-container
+    width: 95%
+    padding: 0.5em
+
+  .form-input
+    width: 100%
+
+@media screen and (min-width: 480px)
+  .form-container
+    width: 90%
+    padding: 1em
+  .form-label, .form-input
+    width: 250%
+
+@media screen and (max-width: 768px)
+  .form-container
+    width: 80%
+    padding: 1.5em
+
+@media screen and (max-width: 1024px)
+  .form-container
+    width: 70%
+    padding: 2em
+
+@media screen and (min-width: 1440px)
+  .form-container
+    width: 50%

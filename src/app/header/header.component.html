@@ -1,14 +1,10 @@
 <header class="header-container">
-  <div class="header-account">
-    <nav class="header-nav nav-account">
-      <button class="header-btn" (click)="navigateToLogin()">Login </button>
-      <button class="header-btn" (click)="navigateToCreateAccount()">Criar Conta</button>
-    </nav>
-  </div>
   <div class="header-redirect">
     <nav class="header-nav nav-redirect">
-      <button class="header-btn" (click)="navigateToCreateList()">Criar Lista</button>
-      <button class="header-btn" (click)="navigateToViewList()">Ver Listas</button>
+      <button class="header-btn" (click)="navigateToRoute('newList')">Criar Lista</button>
+      <button class="header-btn" (click)="navigateToRoute('viewList')">Ver Listas</button>
+      <button class="header-btn" (click)="navigateToRoute('')">Home</button>
     </nav>
   </div>
+
 </header>
