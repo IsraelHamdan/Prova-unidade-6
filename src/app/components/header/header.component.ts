@@ -31,6 +31,8 @@ export class HeaderComponent implements OnDestroy {
     this.heightSubject.next(window.innerHeight);
   }
   navigateToRoute(route: string): void {
+    console.log('🚀 ~ HeaderComponent ~ rota recebida: ', route);
+
     if (route == 'newList') {
       console.log(`Recebi ${route} mas não consigo redirecionar`);
     }

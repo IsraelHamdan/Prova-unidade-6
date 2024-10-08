@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListasDTO } from '../../DTO/ListasDTO';
+import { ListasDTO } from '../../../DTO/ListasDTO';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
   Form,
@@ -10,8 +10,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-create-list',
@@ -23,6 +24,7 @@ import { firstValueFrom } from 'rxjs';
     NgIf,
     NgFor,
     HttpClientModule,
+    CommonModule,
   ],
   templateUrl: './create-list.component.html',
   styleUrl: './create-list.component.sass',
@@ -30,7 +32,11 @@ import { firstValueFrom } from 'rxjs';
 export class CreateListComponent {
   private api = 'http://localhost:3000/listas';
   createItemForm: FormGroup;
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private apiService: ApiService
+  ) {
     this.createItemForm = this.fb.group({
       listName: ['', Validators.required],
       items: this.fb.array([]),
@@ -99,23 +105,14 @@ export class CreateListComponent {
     });
     return newList;
   }
-  private async sendRequest(newList: ListasDTO) {
-    this.http.post(this.api, newList).subscribe(
-      (res) => {
-        console.log('lista criada:', res);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+
   async createList() {
     if (!this.isFormValid()) return;
     try {
       const existingLists = await this.getExistingLists();
       const newListId = this.calcNewListId(existingLists);
       const newList = this.buildList(newListId);
-      this.sendRequest(newList);
+      this.apiService.createList(newList);
     } catch (err) {}
   }
 }

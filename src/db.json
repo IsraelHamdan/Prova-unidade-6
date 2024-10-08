@@ -1,0 +1,64 @@
+{
+  "listas": [
+    {
+      "id": 1,
+      "name": "Meu setup",
+      "itens": [
+        {
+          "id": 1,
+          "name": "Notebook Dell G15 ",
+          "price": 7500,
+          "store": "https://dell.com.br/notebooks/linhaG/G15LX3412",
+          "isBuyed": false
+        },
+        {
+          "id": 2,
+          "name": "Monitor LG 29U69G",
+          "price": 1200,
+          "store": "fnsfndlf",
+          "isBuyed": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Meu setup",
+      "itens": [
+        {
+          "id": 1,
+          "name": "Notebook Dell G15 ",
+          "price": 7500,
+          "store": "https://dell.com.br/notebooks/linhaG/G15LX3412",
+          "isBuyed": false
+        },
+        {
+          "id": 2,
+          "name": "Monitor LG 29U69G",
+          "price": 1200,
+          "store": "fnsfndlf",
+          "isBuyed": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Meu setup",
+      "itens": [
+        {
+          "id": 1,
+          "name": "Notebook Dell G15 ",
+          "price": 7500,
+          "store": "https://dell.com.br/notebooks/linhaG/G15LX3412",
+          "isBuyed": false
+        },
+        {
+          "id": 2,
+          "name": "Monitor LG 29U69G",
+          "price": 1200,
+          "store": "fnsfndlf",
+          "isBuyed": false
+        }
+      ]
+    }
+  ]
+}
